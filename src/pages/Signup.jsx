@@ -29,7 +29,7 @@ const Signup = () => {
             await signUp(email, password)
             setLoading(false)
             if ((password !== confirm) && password === '') return setError('Passwords do no match')
-            // navigate('/')
+            // navigate('/login')
 
         } catch (error) {
             setLoading(false)
