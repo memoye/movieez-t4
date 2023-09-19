@@ -57,7 +57,7 @@ const Row = ({ title, fetchOptions, setLoading }) => {
 
                 <SavedItemsContextProvider>
 
-                    <div ref={ slider } className="w-full h-full overflow-x-scroll whitespace-nowrap scroll-smooth scrollbar-hide relative">
+                    <div ref={ slider } className="w-full h-full overflow-x-scroll no-scrollbar whitespace-nowrap scroll-smooth scrollbar-hide relative">
                         {
                             movies.map((item) => (
                                 <Movie

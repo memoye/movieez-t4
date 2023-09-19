@@ -189,7 +189,7 @@ const Details = () => {
 
 
 
-                                <div ref={ slider } className="w-full h-full overflow-x-scroll whitespace-nowrap scroll-smooth scrollbar-hide relative ">
+                                <div ref={ slider } className="w-full h-full overflow-x-scroll whitespace-nowrap no-scrollbar scroll-smooth scrollbar-hide relative ">
                                     {
                                         cast?.map((item) => (
                                             <div key={ item.id } className="w-[250px] sm:2-[200px] lg:w-[200px] inline-block cursor-pointer  relative p-2">
@@ -226,7 +226,7 @@ const Details = () => {
 
 
 
-                                <div ref={ slider } className="w-full h-full overflow-x-scroll whitespace-nowrap scroll-smooth scrollbar-hide relative ">
+                                <div ref={ slider } className="w-full h-full overflow-x-scroll whitespace-nowrap scroll-smooth scrollbar-hide relative no-scrollbar">
                                     {
                                         currentMovie?.similar?.results.map(item => (
                                             <Link to={ `/details/${item.id}` } key={ item.id } className="w-[160px] sm:2-[200px] lg:w-[200px] inline-block cursor-pointer relative p-2">
@@ -262,7 +262,7 @@ const Details = () => {
 
 
 
-                                <div ref={ slider } className="w-full h-full overflow-x-scroll whitespace-nowrap scroll-smooth scrollbar-hide relative ">
+                                <div ref={ slider } className="w-full h-full overflow-x-scroll whitespace-nowrap scroll-smooth scrollbar-hide relative no-scrollbar">
                                     {
                                         currentMovie?.recommendations.results.map(item => (
                                             <Link to={ `/details/${item.id}` } key={ item.id } className="w-[160px] sm:2-[200px] lg:w-[200px] inline-block cursor-pointer relative p-2">

@@ -1,4 +1,4 @@
-import { MdChevronLeft, MdChevronRight, MdDelete } from "react-icons/md"
+import { MdChevronLeft, MdChevronRight, MdDelete, MdOpenInFull } from "react-icons/md"
 
 import { useRef, useState, useEffect, useContext } from "react"
 import { img_500, img_originial } from "../Requests"
@@ -30,7 +30,7 @@ const SavedMovies = () => {
                 } }
                     className="bg-white left-2 rounded-full absolute opacity-50 hover:opacity-100 cursor-pointer z-10 hidden group-hover:block " size={ 40 } />
 
-                <div ref={ slider } className="w-full h-full overflow-x-scroll whitespace-nowrap scroll-smooth scrollbar-hide relative">
+                <div ref={ slider } className="w-full h-full no-scrollbar overflow-x-scroll whitespace-nowrap scroll-smooth scrollbar-hide relative">
                     {
                         movies?.map((item) => (
                             <div key={ item.id } className="w-[250px] sm:2-[200px] lg:w-[200px] inline-block cursor-pointer relative p-2">
@@ -45,6 +45,7 @@ const SavedMovies = () => {
                                         } }
                                     >
                                         { <MdDelete className="absolute top-4 left-4 text-gray-300" /> }
+                                        { <MdOpenInFull onClick={ () => navigate(`/details/${item.id}`) } className="absolute top-4 right-4 text-xl text-gray-300" /> }
                                     </p>
                                 </div>
                                 <p>

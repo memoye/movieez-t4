@@ -48,7 +48,8 @@ const NavBar = () => {
                     <div className="flex items-center justify-between p-4   ">
                         <Link to={ '/account' }>
                             <button className="text-white pr-4  place-items-center flex items-center gap-2">
-                                <p className='font-bold text-white'>Hi, { userName }</p>
+                                <p className='font-bold text-white'>
+                                    Favorites</p>
                                 { <img
                                     className='w-10 aspect-square object-cover rounded-full sm:inline-block hidden'
                                     src={ profile } alt={ 'Account' } /> }

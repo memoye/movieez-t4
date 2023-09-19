@@ -25,7 +25,7 @@ const Custom = ({ title, movies }) => {
 
                 <SavedItemsContextProvider>
 
-                    <div ref={ slider } className="w-full h-full overflow-x-scroll whitespace-nowrap scroll-smooth scrollbar-hide relative">
+                    <div ref={ slider } className="w-full h-full overflow-x-scroll whitespace-nowrap scroll-smooth scrollbar-hide no-scrollbar relative">
                         {
                             movies?.map((item) => (
                                 <Movie
