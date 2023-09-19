@@ -2,10 +2,13 @@ import { Link, useNavigate } from "react-router-dom"
 import { signupbg } from "../assets"
 import { UserAuth } from "../context/AuthContext"
 import { useState } from "react"
-import { FaCircleNotch } from "react-icons/fa"
+import { FaCircleNotch, FaEye, FaEyeSlash } from "react-icons/fa"
 
 const Signup = () => {
     const navigate = useNavigate()
+
+    const [type, setType] = useState('password')
+
     const [loading, setLoading] = useState(false)
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -38,6 +41,15 @@ const Signup = () => {
         }
     }
 
+    function toggleType() {
+        if (type == 'password') {
+            setType('text')
+        } else {
+            setType('password')
+        }
+    }
+
+
 
     return (
         <>
@@ -52,16 +64,33 @@ const Signup = () => {
                             <h1 className="text-3xl font-bold">Sign Up</h1>
                             { error ? <p className='p-3 bg-red-400 my-2'>{ error }</p> : null }
                             <form onSubmit={ handleSubmit } className="w-full flex flex-col py-4">
-                                <input
-                                    onChange={ (e) => setEmail(e.target.value) }
-                                    className="p-3 my-2 bg-gray-700 rounded " type="email" placeholder="Email" autoComplete="email" />
-                                <input
-                                    onChange={ (e) => setPassword(e.target.value) }
-                                    className="p-3 my-2 bg-gray-700 rounded " type="password" placeholder="Password" />
 
                                 <input
-                                    onChange={ (e) => setConfirm(e.target.value) }
-                                    className="p-3 my-2 bg-gray-700 rounded " type="password" placeholder="Confirm password" />
+                                    onChange={ (e) => setEmail(e.target.value) }
+                                    className="p-3 my-2 bg-gray-700 rounded" type="email" placeholder="Email" autoComplete="email" />
+
+
+
+                                <div className="relative ">
+                                    <input
+                                        onChange={ (e) => setPassword(e.target.value) }
+                                        className="p-3 my-2 bg-gray-700 rounded w-full" type={ type } placeholder="Password" />
+                                    <p onClick={ () => toggleType() }>
+                                        { type == 'password' ? <FaEye className="absolute z-20 right-2 top-1/2 -translate-y-1/2 " /> :
+                                            <FaEyeSlash className="absolute z-20 right-2 top-1/2 -translate-y-1/2  " /> }
+                                    </p>
+                                </div>
+
+                                <div className="relative ">
+                                    <input
+                                        onChange={ (e) => setConfirm(e.target.value) }
+                                        className="p-3 my-2 bg-gray-700 rounded w-full" type={ type } placeholder="Confirm password" />
+                                    <p onClick={ () => toggleType() }>
+                                        { type == 'password' ? < FaEye className="absolute z-20 right-2 top-1/2 -translate-y-1/2  " /> :
+                                            <FaEyeSlash className="absolute z-20 right-2 top-1/2 -translate-y-1/2  " /> }
+                                    </p>
+                                </div>
+
                                 <button disabled={ loading } className='bg-yellow-600 py-3 my-6 rounded font-bold text-center disabled:bg-slate-800'> { !loading ? 'Sign up' : 'Signin you up...' }</button>
                                 <div className="flex justify-between items-center text-sm text-gray-600">
                                     <p><input className="mr-2" type="checkbox" /> Remember me</p>
