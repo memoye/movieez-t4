@@ -24,7 +24,7 @@ const SavedMovies = () => {
     return (
         <>
             <h2 className="text-white font-bold md:text-xl p-4">My Favorites</h2>
-            <div className="relative flex items-center group">
+            <div className="relative z-20 flex items-center group">
                 <MdChevronLeft onClick={ () => {
                     slideTo('left')
                 } }
