@@ -157,12 +157,12 @@ const Details = () => {
                                     { currentMovie?.overview }
                                 </p>
 
-                                <h3 className="text-yellow-500">Keywords</h3>
+                                {/* <h3 className="text-yellow-500">Keywords</h3>
                                 <div className="flex items-center flex-wrap gap-1 ">{
                                     currentMovie?.keywords.keywords.map((keyword, index) => {
                                         if (index < 10) return (<p key={ keyword.id } className="bg-yellow-500/60 p-2 text-black w-fit rounded ">{ keyword.name }</p>)
                                     })
-                                }</div>
+                                }</div> */}
                             </div>
 
                         </div>
