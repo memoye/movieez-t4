@@ -7,18 +7,38 @@ import { UserAuth } from "../context/AuthContext";
 import { arrayUnion, doc, updateDoc } from "firebase/firestore";
 import { ToastContainer, toast } from 'react-toastify';
 import { db } from "../firebase";
+import Loading from "./Loading";
 
-const Main = () => {
+const Main = ({ setLoading }) => {
     const [films, setFilms] = useState([]);
     const [movie, setMovie] = useState(null);
 
-    useEffect(() => {
+    const [error, setError] = useState('');
+
+
+    const fetchData = () => {
+        setLoading(true)
+
         axios
             .request(requests.popular)
             .then((response) => {
                 setFilms(response.data.results);
-            });
+                setLoading(false)
+            })
+            .catch((error) => {
+                setLoading(false)
+                setError(error.message)
+                console.log(error.message)
+            })
+    }
+
+
+
+    useEffect(() => {
+
+        fetchData()
     }, []);
+
 
     useEffect(() => {
         if (films.length > 0) {
@@ -87,8 +107,6 @@ const Main = () => {
             toast('Please Login first')
         }
     }
-
-
 
     return (
         <main className="w-full h-[550px] text-white">
