@@ -2,8 +2,9 @@ import { useState } from 'react';
 import { Link, useNavigate } from "react-router-dom"
 import { signupbg } from "../assets"
 import { UserAuth } from "../context/AuthContext"
+import { auth } from '../firebase';
 
-
+auth
 const Login = () => {
     const navigate = useNavigate()
 
@@ -56,7 +57,7 @@ const Login = () => {
                             <button className='bg-yellow-600 py-3 my-6 rounded font-bold text-center'>Sign In</button>
                             <div className="flex justify-between items-center text-sm text-gray-600">
                                 <p><input className="mr-2" type="checkbox" /> Remember me</p>
-                                {/* <p>Forgot password? <Link> to={ '/reset' }></Link></p> */ }
+                                <p>Need Help?</p>
                             </div>
                             <p className="py-4"><span className="text-gray-600 py-8">Don't have an account?</span>{ ' ' }
                                 <Link to={ '/signup' }> Sign Up</Link>
