@@ -20,6 +20,11 @@ const Login = () => {
         e.preventDefault()
         setError('')
 
+
+        if (email == '' || password == '') {
+            return setError("Cannot submit empty fields")
+        }
+
         try {
             await logIn(email, password)
             navigate('/')
