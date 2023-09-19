@@ -40,11 +40,8 @@ const SavedMovies = () => {
                                         { item?.title }{ item?.name }
                                     </p>
                                     <p
-                                        onClick={ () => {
-                                            deleteSaved(item.id)
-                                        } }
                                     >
-                                        { <MdDelete className="absolute top-4 left-4 text-gray-300" /> }
+                                        { <MdDelete onClick={ () => deleteSaved(item.id) } className="absolute top-4 left-4 text-gray-300" /> }
                                         { <MdOpenInFull onClick={ () => navigate(`/details/${item.id}`) } className="absolute top-4 right-4 text-xl text-gray-300" /> }
                                     </p>
                                 </div>
