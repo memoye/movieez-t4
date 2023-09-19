@@ -5,12 +5,13 @@ import { img_500, img_originial } from "../Requests"
 import { UserAuth } from "../context/AuthContext"
 
 import { UserSaved } from "../context/SavedItemsContext"
+import { useNavigate } from "react-router-dom"
 
 
 const SavedMovies = () => {
     const slider = useRef()
     const { movies, deleteSaved } = UserSaved()
-
+    const navigate = useNavigate()
 
     function slideTo(direction) {
         if (direction === 'left') {
