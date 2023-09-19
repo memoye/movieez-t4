@@ -22,7 +22,6 @@ const Account = () => {
             </div>
             <SavedItemsContextProvider>
                 <SavedMovies />
-
             </SavedItemsContextProvider>
         </>
     )
