@@ -8,3 +8,16 @@ body {
   background-color: black;
   font-family: "Nunito", sans-serif;
 }
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

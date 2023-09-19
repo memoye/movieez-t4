@@ -2,10 +2,11 @@ import { Link, useNavigate } from "react-router-dom"
 import { signupbg } from "../assets"
 import { UserAuth } from "../context/AuthContext"
 import { useState } from "react"
+import { FaCircleNotch } from "react-icons/fa"
 
 const Signup = () => {
     const navigate = useNavigate()
-
+    const [loading, setLoading] = useState(false)
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [confirm, setConfirm] = useState('')
@@ -16,19 +17,24 @@ const Signup = () => {
     const handleSubmit = async (e) => {
 
         e.preventDefault()
-        // const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-        const passwordRegex = /^[A-Za-z0-9]{8}$/;
+        setLoading(true)
 
-        if (password !== confirm) return setError('Passwords do no match')
-        if (!passwordRegex.test(password)) return setError('Password must be alphanumeric and at least 8 digits long')
+        // const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+        // const passwordRegex = /^[A-Za-z0-9]{8}$/;
+        console.log(password, confirm)
+        // if (!passwordRegex.test(password)) return setError('Password must be alphanumeric and at least 8 digits long')
+        console.log(password, email)
 
         try {
-            setLoading(true)
             await signUp(email, password)
-            navigate('/')
+            setLoading(false)
+            if ((password !== confirm) && password === '') return setError('Passwords do no match')
+            // navigate('/')
+
         } catch (error) {
+            setLoading(false)
             console.log(error)
-            setE
+            setError(error.message)
         }
     }
 
@@ -56,7 +62,7 @@ const Signup = () => {
                                 <input
                                     onChange={ (e) => setConfirm(e.target.value) }
                                     className="p-3 my-2 bg-gray-700 rounded " type="password" placeholder="Confirm password" />
-                                <button className='bg-yellow-600 py-3 my-6 rounded font-bold text-center'>Sign up</button>
+                                <button disabled={ loading } className='bg-yellow-600 py-3 my-6 rounded font-bold text-center disabled:bg-slate-800'> { !loading ? 'Sign up' : 'Signin you up...' }</button>
                                 <div className="flex justify-between items-center text-sm text-gray-600">
                                     <p><input className="mr-2" type="checkbox" /> Remember me</p>
                                     <p>Need Help?</p>

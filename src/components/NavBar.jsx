@@ -49,9 +49,9 @@ const NavBar = () => {
                         <Link to={ '/account' }>
                             <button className="text-white pr-4  place-items-center flex items-center gap-2">
                                 <p className='font-bold text-white'>Hi, { userName }</p>
-                                <img
-                                    className='w-10 aspect-square object-cover rounded-full '
-                                    src={ profile } alt={ 'Account' } />
+                                { <img
+                                    className='w-10 aspect-square object-cover rounded-full sm:inline-block hidden'
+                                    src={ profile } alt={ 'Account' } /> }
                             </button>
                         </Link>
 
