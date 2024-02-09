@@ -7,7 +7,6 @@ import SearchBox from './SearchBox'
 import { profile } from '../assets'
 import { useEffect, useState } from 'react'
 
-
 const NavBar = () => {
     const navigate = useNavigate()
     const { user, logOut, userName } = UserAuth()

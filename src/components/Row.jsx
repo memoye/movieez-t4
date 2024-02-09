@@ -43,7 +43,7 @@ const Row = ({ title, fetchOptions, setLoading }) => {
     useEffect(() => {
         // fetchData on change of fetchOptions
         fetchData()
-    }, [fetchOptions])
+    }, [])
 
 
     return (
